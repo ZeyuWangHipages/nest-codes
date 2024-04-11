@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: testDb      # Name of the database you want to create automatically
+      MYSQL_USER: admin                    # Username you want to create automatically
+      MYSQL_PASSWORD: password       # Password for the user
+    ports:
+      - "3306:3306"                            # Map port 3306 of the container to port 3306 on the host
+    command: --default-authentication-plugin=mysql_native_password  # Use this if your app doesn't support caching_sha2_password
